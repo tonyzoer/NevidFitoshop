@@ -13,10 +13,10 @@ $('.product-removal button').click( function() {
   removeItem(this);
 });
 
-$('#checkout').click(function(){
-  simpleCart.checkout();
-  // sendMail();
-})
+// $('#checkout').click(function(){
+//   // simpleCart.checkout();
+//   // sendMail();
+// })
 /* Recalculate cart */
 function recalculateCart()
 {
@@ -105,6 +105,13 @@ function downloadFromSimpleCart (){
       productTitleDiv.className="product-title";
       productTitleDiv.innerHTML=items[i].get("name");
       productDetailsDiv.appendChild(productTitleDiv);
+
+      var productTitleInputHidden=document.createElement("input");
+      productTitleInputHidden.type="hidden";
+      productTitleInputHidden.name="item_name_"+i;
+      productTitleInputHidden.value=items[i].get("name");
+      productDetailsDiv.appendChild(productTitleInputHidden);
+
       var productDescriptionP=document.createElement("p");
       productDescriptionP.className="product-description";
       // TODO: set DESC;
@@ -117,12 +124,19 @@ function downloadFromSimpleCart (){
       priceDiv.innerHTML=items[i].price();
       productDiv.appendChild(priceDiv);
 
+      var priceInputHidden=document.createElement("input");
+      priceInputHidden.type="hidden";
+      priceInputHidden.name="item_price_"+i;
+      priceInputHidden.value=items[i].price();
+      productDiv.appendChild(priceInputHidden);
+
       var quantityDiv=document.createElement("div");
       quantityDiv.className="product-quantity";
       var quantityInput=document.createElement("input");
       quantityInput.type="number";
       quantityInput.min="1";
       quantityInput.value=items[i].quantity();
+      quantityInput.name="item_quantity_"+i;
       quantityDiv.appendChild(quantityInput);
       productDiv.appendChild(quantityDiv);
 
@@ -130,24 +144,41 @@ function downloadFromSimpleCart (){
       removeDiv.className="product-removal";
       var removeButton=document.createElement("button");
       removeButton.className="remove-product";
+      removeButton.type="button";
       removeButton.innerHTML="Видалити";
       removeDiv.appendChild(removeButton);
       productDiv.appendChild(removeDiv);
+
+
+      var productLinePriceHIddenInput=document.createElement("input");
+      productLinePriceHIddenInput.className="product-line-price-hidden-input";
+      productLinePriceHIddenInput.innerHTML=items[i].price()*items[i].quantity();
+      productLinePriceHIddenInput.type="hidden";
+      productLinePriceHIddenInput.name="item_price_sum_"+i;
+      productDiv.appendChild(productLinePriceHIddenInput);
+
 
       var productLinePriceDiv=document.createElement("div");
       productLinePriceDiv.className="product-line-price";
       productLinePriceDiv.innerHTML=items[i].price()*items[i].quantity();
       productDiv.appendChild(productLinePriceDiv);
 
-      // var hiddenIdDiv=document.createElement("div");
-      // hiddenIdDiv.className="id";
-      // hiddenIdDiv.setAttribute("hidden", true);
-      // hiddenIdDiv.innerHTML=items[i].id();
-      // productDiv.appendChild(hiddenIdDiv);
+      var productLinePriceInputHidden=document.createElement("input");
+      productLinePriceInputHidden.type="hidden";
+      productLinePriceHIddenInput.name="item_price_sum_"+i;
+      productLinePriceHIddenInput.value= items[i].price()*items[i].quantity();
+      productDiv.appendChild(productLinePriceHIddenInput);
+
       productDiv.id=items[i].id();
       shopingCart.insertBefore(productDiv,columnLabels.nextSibling);
 
   }
+  var itemCount=document.createElement("input");
+  itemCount.type="hidden";
+  itemCount.name="itemCount";
+  itemCount.value=simpleCart.items().length;
+  shopingCart.insertBefore(itemCount,columnLabels.nextSibling);
+
   $('.product-quantity input').change( function() {
     updateQuantity(this);
   });

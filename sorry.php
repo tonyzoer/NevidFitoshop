@@ -115,11 +115,8 @@ if ($result->num_rows > 0) {
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
-                    <h2 class="fh5co-section-lead">Дякую за замовлення</h2>
-                    <p>Очікуйте телефонного дзвінка від нашого менеджера</p>
-                </div>
-                <div class="col-md-12">
-                    <a id="clearCart" class="btn btn-primary" href="#">Очистить корзину</a>
+                    <h2 class="fh5co-section-lead">Вибачте</h2>
+                    <p>Щось пішло не так, зв'яжіться будь ласка з нами по телефону  <a style="font-size:0.7em" href="tel:+380969718767 ">(096)971–87–67 </a></p>
                 </div>
             </div>
         </div>
@@ -136,8 +133,7 @@ if ($result->num_rows > 0) {
                         <p>Є ОФІЦІЙНИМ ПРЕДСТАВНИКОМ ТОВ «НВП «ЛАБОРАТОРІЯ «НЕВІД» (Україна, Київська область,
                             Обухівський район, с. Халеп’я, вул. Беркутова, 18. )
                             <br> Представлену продукцію Ви можете замовити на сайті,
-                            <br> або за телефоном : <a style="font-size:2em" href="tel:+380969718767 ">(096) 971 – 87 –
-                                67 </a>
+                            <br> або за телефоном : <a style="font-size:2em" href="tel:+380969718767 ">(096)971–87–67 </a>
                         </p>
                         <p>МИ ПРАЦЮЕМО: <br> ПОНЕДІЛОК – ПЯТНИЦЯ - 9.00 до 18.00 <br> СУБОТА, НЕДІЛЯ - вихідний.
                         </p>
@@ -197,24 +193,6 @@ if ($result->num_rows > 0) {
     <script src="js/jquery.magnific-popup.min.js"></script>
     <!-- Main JS -->
     <script src="js/main.js"></script>
-    <!-- SimpleCart -->
-    <script type="text/javascript" src="js/simpleCart.min.js"></script>
-    <script>
-        simpleCart({
-            checkout: {
-                type: "SendForm",
-                email: "nevid@fitoshop.in.ua",
-                url: "sendForm.php",
-                method: "POST",
-            }
-        });
-        simpleCart.init();
-        $("#clearCart").click(function () {
-            simpleCart.each(function (item,x) {
-                item.remove();
-            })
-        })
-    </script>
 
 
 </body>

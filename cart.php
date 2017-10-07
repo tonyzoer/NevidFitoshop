@@ -106,45 +106,49 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1>Корзина</h1>
+            <form action="sendForm.php" method="POST">
+                <div class="col-md-12">
+                    <h1>Корзина</h1>
 
-                <div class="shopping-cart" id="cart">
+                    <div class="shopping-cart" id="cart">
 
 
-                    <div class="column-labels" id="column-labels">
-                        <label class="product-image">Фото</label>
-                        <label class="product-details">Продукт</label>
-                        <label class="product-price">Ціна</label>
-                        <label class="product-quantity">Кількість</label>
-                        <label class="product-removal">Видалити</label>
-                        <label class="product-line-price">Сума</label>
+                        <div class="column-labels" id="column-labels">
+                            <label class="product-image">Фото</label>
+                            <label class="product-details">Продукт</label>
+                            <label class="product-price">Ціна</label>
+                            <label class="product-quantity">Кількість</label>
+                            <label class="product-removal">Видалити</label>
+                            <label class="product-line-price">Сума</label>
+                        </div>
+
+
+                        <div class="totals">
+                            <div class="totals-item">
+                                <label>Сума</label>
+                                <div class="totals-value" id="cart-subtotal">71.97</div>
+                            </div>
+                            <!-- <div class="totals-item">
+                              <label>Tax (5%)</label>
+                              <div class="totals-value" id="cart-tax">3.60</div>
+                            </div> -->
+                            <div class="totals-item">
+                                <label>Доставка</label>
+                                <div class="totals-value" id="cart-shipping">35.00</div>
+                            </div>
+                            <div class="totals-item totals-item-total">
+                                <label>Повна Сума</label>
+                                <div class="totals-value" id="cart-total">90.57</div>
+                            </div>
+                        </div>
+                        <input class="input-sm" type="email" placeholder="E-Mail" name="email">
+                        <input class="input-sm" type="tel" placeholder="Телефон" name="tel">
+                        <input class="input-sm" type="text" placeholder="Ім'я" name="name">
+                        <button type="submit" id="checkout" class="checkout">Замовити</button>
+
                     </div>
-
-
-                    <div class="totals">
-                        <div class="totals-item">
-                            <label>Сума</label>
-                            <div class="totals-value" id="cart-subtotal">71.97</div>
-                        </div>
-                        <!-- <div class="totals-item">
-                          <label>Tax (5%)</label>
-                          <div class="totals-value" id="cart-tax">3.60</div>
-                        </div> -->
-                        <div class="totals-item">
-                            <label>Доставка</label>
-                            <div class="totals-value" id="cart-shipping">35.00</div>
-                        </div>
-                        <div class="totals-item totals-item-total">
-                            <label>Повна Сума</label>
-                            <div class="totals-value" id="cart-total">90.57</div>
-                        </div>
-                    </div>
-
-                    <button type="submit" id="checkout" class="checkout">Замовити</button>
-
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
@@ -157,8 +161,14 @@
                 <div class="col-md-8 col-sm-12">
                     <div class="fh5co-footer-widget">
                         <h2 class="fh5co-footer-logo">FitoShop</h2>
-                        <p>Наша компанія................................................................. Придумати
-                            текст</p>
+                        <p>Є ОФІЦІЙНИМ ПРЕДСТАВНИКОМ ТОВ «НВП «ЛАБОРАТОРІЯ «НЕВІД» (Україна, Київська область,
+                            Обухівський район, с. Халеп’я, вул. Беркутова, 18. )
+                            <br> Представлену продукцію Ви можете замовити на сайті,
+                            <br> або за телефоном : <a style="font-size:2em" href="tel:+380969718767 ">(096) 971 – 87 –
+                                67 </a>
+                        </p>
+                        <p>МИ ПРАЦЮЕМО: <br> ПОНЕДІЛОК – ПЯТНИЦЯ - 9.00 до 18.00 <br> СУБОТА, НЕДІЛЯ - вихідний.
+                        </p>
                     </div>
                     <div class="fh5co-footer-widget">
                         <ul class="fh5co-social">
@@ -206,7 +216,7 @@
                             $i = 0;
                             for ($z = 0; $z < count($id); $z++) {
                                 $i = $z + 1;
-                                echo "<li><a href='type?category=$id[$z]'>$type[$z]</a></li>";
+                                echo "<li><a href='type/$id[$z]'>$type[$z]</a></li>";
                             }
                             ?>
                         </ul>
@@ -246,7 +256,7 @@
         simpleCart({
             checkout: {
                 type: "SendForm",
-                email: "okamanahi@gmail.com",
+                email: "nevid@fitoshop.in.ua",
                 url: "sendForm.php",
                 method: "POST",
             }
