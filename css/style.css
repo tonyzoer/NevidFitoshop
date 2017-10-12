@@ -5865,10 +5865,28 @@ pre {
   background: white;
   border: 2px solid transparent; }
 
-.owl-carousel-fullwidth .item, .owl-carousel-fullwidth .fh5co-owl-text-wrap {
-  height: 800px;
-  display: table;
-  width: 100%; }
+@media screen and (max-width: 760px){
+  .owl-carousel-fullwidth .item, .owl-carousel-fullwidth .fh5co-owl-text-wrap {
+    height: 500px;
+    display: table;
+    width: 100%; }
+}
+@media screen and (max-width: 480px){
+  .owl-carousel-fullwidth .item, .owl-carousel-fullwidth .fh5co-owl-text-wrap {
+    height: 300px;
+    display: table;
+    width: 100%; }
+}
+
+@media screen  and (min-width: 780px){
+
+  .owl-carousel-fullwidth .item, .owl-carousel-fullwidth .fh5co-owl-text-wrap {
+    height: 600px;
+    display: table;
+    width: 100%; }
+}
+
+
 .owl-carousel-fullwidth .item {
   background-repeat: no-repeat;
   background-size: cover;

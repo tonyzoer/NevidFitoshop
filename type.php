@@ -20,7 +20,7 @@ if ($_GET["id"]) {
 FROM products
 JOIN products_productsType ON id = productId
 WHERE productTypeId =$category
-ORDER BY name";
+ORDER BY orderValue";
 // echo "<br>";
 // echo $sql;
 }

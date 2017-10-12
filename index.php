@@ -6,7 +6,7 @@ $imgsrc=array();
 $desc=array();
 $sql=null;
 $sql="SELECT * FROM `productTypes`
-ORDER BY type";
+ORDER BY orderValue";
 $result=$conn->query($sql);
 $i=0;
 if ($result->num_rows>0) {
